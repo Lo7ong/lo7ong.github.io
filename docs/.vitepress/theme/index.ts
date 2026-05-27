@@ -2,25 +2,21 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import { useData } from 'vitepress'
 import './style.css'
+import TuiHome from './TuiHome.vue'
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
-    return h(DefaultTheme.Layout, null, {
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
-      'home-hero-before': () => h('div', { class: 'cli-startup' }, [
-        h('pre', { class: 'startup-text' }, `
-╔═══════════════════════════════════════╗
-║   Lo7ong Technical Documentation      ║
-║   System Ready • Version 1.0          ║
-╚═══════════════════════════════════════╝
-        `)
-      ])
-    })
+    const { frontmatter } = useData()
+    // Render the full TUI homepage when requested
+    if (frontmatter.value.layout === 'tuiHome') {
+      return h(TuiHome)
+    }
+    return h(DefaultTheme.Layout, null, {})
   },
-  enhanceApp({ app, router, siteData }) {
-    // 添加页面加载动画
+  enhanceApp({ router }) {
     if (typeof window !== 'undefined') {
       router.onBeforeRouteChange = () => {
         console.log('%c[System] Loading page...', 'color: #3fb950; font-family: monospace;')
