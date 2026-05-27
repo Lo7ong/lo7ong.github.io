@@ -52,10 +52,8 @@ const zhSidebar = [
 ]
 
 export default defineConfig({
-  srcDir: 'docs',
   title: 'Lo7ong Docs',
   description: 'A clean documentation site for guides, references, and deployment notes.',
-  lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#3c82f6' }]
