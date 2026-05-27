@@ -1,4 +1,3 @@
-// https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
@@ -8,26 +7,17 @@ export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      // https://vitepress.dev/guide/extending-default-theme#layout-slots
-      'home-hero-before': () => h('div', { class: 'cli-startup' }, [
-        h('pre', { class: 'startup-text' }, `
-╔═══════════════════════════════════════╗
-║   Lo7ong Technical Documentation      ║
-║   System Ready • Version 1.0          ║
-╚═══════════════════════════════════════╝
-        `)
-      ])
+      'layout-top': () =>
+        h('div', { class: 'site-notice' }, [
+          h('div', { class: 'site-notice__inner' }, [
+            h('span', { class: 'site-notice__badge' }, 'Updated'),
+            h(
+              'p',
+              { class: 'site-notice__text' },
+              'This site is being updated continuously to keep guides and references easy to browse.'
+            )
+          ])
+        ])
     })
-  },
-  enhanceApp({ app, router, siteData }) {
-    // 添加页面加载动画
-    if (typeof window !== 'undefined') {
-      router.onBeforeRouteChange = () => {
-        console.log('%c[System] Loading page...', 'color: #3fb950; font-family: monospace;')
-      }
-      router.onAfterRouteChanged = () => {
-        console.log('%c[System] ✓ Page loaded', 'color: #3fb950; font-family: monospace;')
-      }
-    }
   }
 } satisfies Theme

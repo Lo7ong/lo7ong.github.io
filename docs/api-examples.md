@@ -2,48 +2,35 @@
 outline: deep
 ---
 
-# Runtime API Examples
+# Runtime API
 
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
+This page keeps a compact runtime reference for the built-in VitePress data helpers used by the site.
 
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
+## useData()
 
-```md
-<script setup>
-import { useData } from 'vitepress'
+Use `useData()` when a page or custom Vue component needs access to runtime metadata.
 
-const { theme, page, frontmatter } = useData()
-</script>
-
-## Results
-
-### Theme Data
-<pre>{{ theme }}</pre>
-
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
-```
-
-<script setup>
+```ts
 import { useData } from 'vitepress'
 
 const { site, theme, page, frontmatter } = useData()
-</script>
+```
 
-## Results
+## Available values
 
-### Theme Data
-<pre>{{ theme }}</pre>
+| Key | Description |
+| --- | --- |
+| `site` | Global site metadata from the VitePress config |
+| `theme` | Resolved theme configuration for the current locale |
+| `page` | Current page metadata and route information |
+| `frontmatter` | Frontmatter for the current markdown page |
 
-### Page Data
-<pre>{{ page }}</pre>
+## Typical use cases
 
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
+- Reading the active locale and navigation state.
+- Rendering custom page-level UI from frontmatter.
+- Accessing theme settings from Vue-based custom components.
 
-## More
-
-Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).
+::: tip
+Keep runtime helpers for interactive or theme-level cases. Static page content should stay in markdown whenever possible.
+:::

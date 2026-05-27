@@ -1,85 +1,27 @@
-# Markdown Extension Examples
+# Platform Notes
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+This section now works as a concise product-style overview instead of a generic markdown demo.
 
-## Syntax Highlighting
+## What changed
 
-VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
+- The terminal-only styling was replaced with a cleaner docs layout.
+- Navigation now focuses on guide pages and reference pages.
+- The site supports light and dark themes.
+- A locale switcher is available for English and Simplified Chinese.
 
-**Input**
+## Documentation structure
 
-````md
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
-````
-
-**Output**
-
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
-
-## Custom Containers
-
-**Input**
-
-```md
-::: info
-This is an info box.
-:::
-
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
-```
-
-**Output**
+| Section | Purpose |
+| --- | --- |
+| Introduction | Explains the site layout and navigation model |
+| Getting Started | Helps new readers find the right first pages |
+| Deployment | Keeps build and deployment notes in one place |
+| Runtime API | Lists VitePress runtime examples and data access |
 
 ::: info
-This is an info box.
+The search dialog uses VitePress local search, so content is indexed directly from the markdown files in this repository.
 :::
 
-::: tip
-This is a tip.
-:::
+## Recommended next step
 
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
-
-## More
-
-Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
+Go to [Getting Started](/guide/getting-started) for the fastest way to browse the refreshed site.
