@@ -104,7 +104,7 @@ onUnmounted(() => {
   <div
     class="tui"
     ref="appRef"
-    tabindex="-1"
+    tabindex="0"
     @keydown="onKey"
     role="application"
     aria-label="Lo7ong Hub"
